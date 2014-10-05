@@ -421,42 +421,54 @@
                                         <td>Dillo 0.8</td>
                                         <td>Embedded devices</td>
                                         <td class="center hidden-phone">-</td>
-                                        <td class="center hidden-phone">X</td>
+                                        <td class="center hidden-phone">
+											<img src='../images/pencil.png' class='btnEdit'/>
+										</td>
                                     </tr>
                                     <tr class="gradeX">
                                         <td>Misc</td>
                                         <td>Links</td>
                                         <td>Text only</td>
                                         <td class="center hidden-phone">-</td>
-                                        <td class="center hidden-phone">X</td>
+                                        <td class="center hidden-phone">
+											<img src='../images/pencil.png' class='btnEdit'/>
+										</td>
                                     </tr>
                                     <tr class="gradeX">
                                         <td>Misc</td>
                                         <td>Lynx</td>
                                         <td>Text only</td>
                                         <td class="center hidden-phone">-</td>
-                                        <td class="center hidden-phone">X</td>
+                                        <td class="center hidden-phone">
+											<img src='../images/pencil.png' class='btnEdit'/>
+										</td>
                                     </tr>
                                     <tr class="gradeC">
                                         <td>Misc</td>
                                         <td>IE Mobile</td>
                                         <td>Windows Mobile 6</td>
                                         <td class="center hidden-phone">-</td>
-                                        <td class="center hidden-phone">C</td>
+                                        <td class="center hidden-phone">
+											<img src='../images/pencil.png' class='btnEdit'/>
+										</td>
                                     </tr>
                                     <tr class="gradeC">
                                         <td>Misc</td>
                                         <td>PSP browser</td>
                                         <td>PSP</td>
                                         <td class="center hidden-phone">-</td>
-                                        <td class="center hidden-phone">C</td>
+                                        <td class="center hidden-phone">
+											<img src='../images/pencil.png' class='btnEdit'/>
+										</td>
                                     </tr>
                                     <tr class="gradeU">
                                         <td>Other browsers</td>
                                         <td>All others</td>
                                         <td>-</td>
                                         <td class="center hidden-phone">-</td>
-                                        <td class="center hidden-phone">U</td>
+                                        <td class="center hidden-phone">
+											<img src='../images/pencil.png' class='btnEdit'/>
+										</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
@@ -507,7 +519,7 @@
 <script>
 $(document).ready(function(){
  Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
- $(".btnEdit").bind("click", Edit);
+ //$(".btnEdit").bind("click", Edit);
  $(".btnSave").bind("click", Save); 
  
 	var currentUser = Parse.User.current();
@@ -573,8 +585,8 @@ $(document).ready(function(){
 			alert(test);*/
 });
 
-function Edit() { 
-	var par = $(this).parent().parent(); //tr 
+ $(".btnEdit").bind("click", function Edit() { 
+	var par = $("#mainTable"); //tr 
 	var tdName = par.children("td:nth-child(1)"); 
 	var tdPhone = par.children("td:nth-child(2)"); 
 	var tdEmail = par.children("td:nth-child(3)"); 
@@ -588,7 +600,7 @@ function Edit() {
 	$(".btnSave").bind("click", Save); 
 	$(".btnEdit").bind("click", Edit); 
 
-};
+});
 
 function Save(){ 
 	var par = $(this).parent().parent(); //tr 

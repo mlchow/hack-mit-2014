@@ -396,53 +396,37 @@
         <aside class="right-side">
             <section class="content">
                 <h1 id="pageTitle">
-                    Blank Pages
+                    Add New Junto Box
                     <!--<small>Control panel</small>-->
                 </h1>
                 <!-- start:breadcrumb -->
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="active fa fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="active fa fa-plus"></i> Add New Junto Box</a></li>
                 </ol>
                 <!-- end:breadcrumb -->
 
                 <!-- start:content -->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="box blank-page" >
-                            <div id="main-container" >Loading Content <i class="fa fa-refresh fa-spin"></i></div>
-                        
-						<!-- start:dynamic data table -->
-                        <div class="adv-table">
-                            <table  class="display table table-bordered table-striped" id="mainTable">
-                                <thead>
-                                    <tr id="tableHeader">
-                                        <th><i class="fa fa-refresh fa-spin"></i></th>
-                                        <th><i class="fa fa-refresh fa-spin"></i></th>
-                                        <th>Platform(s)</th>
-                                        <th class="hidden-phone"><i class="fa fa-refresh fa-spin"></i></th>
-                                        <th class="hidden-phone"><i class="fa fa-refresh fa-spin"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tableBody">
-                                    
-                                    <tr class="gradeX">
-                                        <td>Loading Content <i class="fa fa-refresh fa-spin"></i></td>
-                                        <td>Loading Content <i class="fa fa-refresh fa-spin"></i></td>
-                                        <td>Loading Content <i class="fa fa-refresh fa-spin"></i></td>
-                                        <td class="center hidden-phone">Loading Content <i class="fa fa-refresh fa-spin"></i></td>
-                                        <td class="center hidden-phone">Loading Content <i class="fa fa-refresh fa-spin"></i></td>
-                                    </tr>
-                                    
-                                </tbody>
-                                <tfoot>
-                                    <!--<tr id="tableFooter">                                        
-                                    </tr>-->
-                                </tfoot>
-                            </table>
-							
+                        <div class="box blank-page" id="main-container">
+							<div class="box">
+                            <button type="button" id="newAttribute" class="btn btn-success"  >Add attribute</button>
+							<button type="button" id="newObject" class="btn btn-info">Create Object</button>
+						</div>
+							<div id="wrapper" >
+								<div id="duplicater1">
+									<select name="attributes1" id="attributes1" class="attributes">
+										<option value="title">Title</option>
+										<option value="description">Description</option>
+										<option value="location">Location</option>
+										<option value="date">Date</option>
+										<option value="url">URL</option>
+									</select>
+									<input type="text" id="attributeText1" class="attributeText"></input>
+								</div>
+							</div>
                         </div>
-                        <!-- end:dynamic data table -->
-                    
+                    </div>
                 </div>
                 <!-- end:content -->
 
@@ -505,7 +489,7 @@ $(document).ready(function(){
           //console.log(Parse.User.current())
   
   
-		loadTables("Hackathons");
+		
 		
 		
 	
@@ -520,8 +504,62 @@ $(document).ready(function(){
                 "aaSorting": [[ 4, "desc" ]]
             } );
 });
-</script>
+
+
+
+var numOfAttr = 1;
+
+$("#newAttribute").click(function() {
+	/*var original = document.getElementById('duplicater1');
+	var clone = original.cloneNode(true); // "deep" clone
+    clone.id = "duplicater" + ++numOfAttr;
+    original.parentNode.appendChild(clone);*/
+	if (numOfAttr < 5){
+	$tmc = $("#duplicater1").clone();
+	$(".attributes", $tmc).attr('id', 'attributes' + ++numOfAttr);
+	$(".attributeText", $tmc).attr('id', 'attributeText' + numOfAttr);
+	$(".attributes", $tmc).attr('name', 'attributes' + numOfAttr);
+	$tmc.appendTo("#wrapper");
+	}else{
+	alert("Too many attributes");
+	}
+});
+
+$("#newObject").click(function() {
+	var JuntoBox = Parse.Object.extend("TestObject");
+	var myObject = new JuntoBox();
 	
+		for (i = 1; i <= numOfAttr; i++) {
+			var e = document.getElementById('attributes'+i);
+			alert("e: " + e);
+			alert("Attribute: " + i);
+			alert("selectedIndex: " + e.selectedIndex);
+			myObject.set(e.options[e.selectedIndex].value, document.getElementById('attributeText'+i).value);
+		
+			myObject.save(null, {
+				success: function(myObject) {
+					// Execute any logic that should take place after the object is saved.
+					alert('New object created with objectId: ' + myObject.id);
+			},
+			error: function(myObject, error) {
+				// Execute any logic that should take place if the save fails.
+				// error is a Parse.Error with an error code and message.
+				alert('Failed to create new object, with error code: ' + error.message);
+			}
+			});
+		}
+	
+});
+</script>
+
+
+
+
+
+
+
+
+
 	
 
 	

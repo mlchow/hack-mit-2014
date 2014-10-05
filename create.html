@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-reset.css">
 	<!-- start:style arjuna -->
 	<link rel="stylesheet" type="text/css" href="css/arjuna.css">
+	
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,17 +26,13 @@
 <body class="cl-default fixed" id="login">
 
     <!-- start:wrapper -->
-    <div class="header-login">
+    <div class="header-login wow fadeInDown" data-wow-duration="2s" data-wow-delay=".2s">
     	<div class="text-center">
     		<h1><i class="fa fa-pied-piper-alt"></i> Junto</h1>
     	</div>
     </div>
 
-    <div class="body-login">
-    	<div class="alert alert-dismissible alert-warning alert-login hidden" role="alert">
-		  	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		  	<strong>Warning!</strong> Better check yourself, you're not looking too good.
-		</div>
+    <div class="body-login wow fadeInDown" data-wow-duration="2s" data-wow-delay=".2s">
     	<form role="form" method="post">
     		<div class="form-group">
     			<input type="firstName" class="form-control input-lg" id="firstName" name="firstName" placeholder="First Name">
@@ -62,12 +60,24 @@
 	
 	
 
-  <script type="text/javascript">
+ 
+    <!-- end:wrapper -->
+
+	<!-- start:javascript for all pages -->
+		<!-- start:jquery -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<!-- start:bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- start:arjuna.js -->
+		<script src="js/arjuna.js"></script>
+	<!-- end:javascript for all pages-->
+	<script src="js/wow.js"></script>
+	 <script type="text/javascript">
     Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
     
     var currentUser = Parse.User.current();
     if (currentUser) {
-		window.location.replace("pages/temp-main.php");
+		window.location.replace("pages/main.php");
 	}
 	else {
 		// none. 
@@ -76,7 +86,6 @@
     
     $("#createUser").click(function(event) {
     	event.preventDefault();
-    	alert("yo");
     	
     	// set user values
     	var firstName = $("#firstName").val();
@@ -94,17 +103,13 @@
 	 	// sign up new user
 		user.signUp(null, {
 	 	 success: function(user) {
-	    	//alert("create success");
-	    	//window.location.replace("pages/temp-main.php");
 	    	Parse.User.become(user._sessionToken).then(function (user) {
-				//	console.log(Parse.User.current());
 			 	 window.location.replace("pages/main.php");
 				 }, function (error) {
 				  console.log(error);
 				});
 	    	},
 	     error: function(user, error) {
-	     	//alert("create failure");
 	     	//some error message
 
 	    	// Show the error message somewhere and let the user try again
@@ -112,7 +117,9 @@
 			}
 		});
 	});
-
+	    
+	new WOW().init();
+	
 
     
 	
@@ -120,16 +127,6 @@
 	
     
   </script>
-    <!-- end:wrapper -->
-
-	<!-- start:javascript for all pages -->
-		<!-- start:jquery -->
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<!-- start:bootstrap -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- start:arjuna.js -->
-		<script src="js/arjuna.js"></script>
-	<!-- end:javascript for all pages-->
 
 </body>
 </html>

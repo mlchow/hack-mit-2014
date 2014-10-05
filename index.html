@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-reset.css">
 	<!-- start:style arjuna -->
 	<link rel="stylesheet" type="text/css" href="css/arjuna.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,18 +25,18 @@
 <body class="cl-default fixed" id="login">
 
     <!-- start:wrapper -->
-    <div class="header-login">
+    <div class="header-login wow fadeInDown" data-wow-duration="2s" data-wow-delay=".2s">
     	<div class="text-center">
     		<h1><i class="fa fa-pied-piper-alt"></i> Junto</h1>
     	</div>
     </div>
 
-    <div class="body-login">
+    <div class="body-login wow fadeInDown" data-wow-duration="2s" data-wow-delay=".2s">
     	<div class="alert alert-dismissible alert-warning alert-login hidden" role="alert">
 		  	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		  	<strong>Warning!</strong> Better check yourself, you're not looking too good.
 		</div>
-    	<form role="form" method="post">
+    	<form role="form" method="post" >
 		  	<div class="form-group">
 		    	<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Enter email">
 		  	</div>
@@ -58,6 +59,18 @@
 	
 	
 
+    <!-- end:wrapper -->
+
+	<!-- start:javascript for all pages -->
+		<!-- start:jquery -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<!-- start:bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- start:arjuna.js -->
+		<script src="js/arjuna.js"></script>
+	<!-- end:javascript for all pages-->
+		<script src="js/wow.js"></script>
+		
   <script type="text/javascript">
     Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
 
@@ -83,7 +96,7 @@
     			//alert("success");
 				Parse.User.become(user._sessionToken).then(function (user) {
 				//	console.log(Parse.User.current());
-			 	 window.location.href("pages/temp-main.php");
+			 	 window.location.replace("pages/main.php");
 				 }, function (error) {
 				  console.log(error);
 				});
@@ -95,47 +108,15 @@
     		}
     		//event.preventDefault();
     	})
-
-	   /* var user = new Parse.User();
-		user.set("username", userEmail);
-		user.set("password", userPass);
-		//user.set("email", "email@example.com");
-	 	
-		// other fields can be set just like with Parse.Object
-		//user.set("phone", "415-392-0202");
-	 	
-		user.signUp(null, {
-	 	 success: function(user) {
-	    	// Hooray! Let them use the app now.
-	    	window.location("pages/main.php");
-	    	},
-	     error: function(user, error) {
-	     	window.location.replace("pages/main.php");
-	     	
-	    	// Show the error message somewhere and let the user try again
-	    	//alert("Error: " + error.code + " " + error.message);
-			}
-		});
-*/
 	});
 
 
     
-	
+	new WOW().init();
 	
 	
     
   </script>
-    <!-- end:wrapper -->
-
-	<!-- start:javascript for all pages -->
-		<!-- start:jquery -->
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<!-- start:bootstrap -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- start:arjuna.js -->
-		<script src="js/arjuna.js"></script>
-	<!-- end:javascript for all pages-->
 
 </body>
 </html>
