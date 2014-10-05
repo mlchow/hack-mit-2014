@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<title>LOGIN | Junto</title>
+	<!-- start:bootstrap v3.2.0 -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- start:font awesome v4.1.0 -->
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <!-- start:bootstrap reset -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-reset.css">
+	<!-- start:style arjuna -->
+	<link rel="stylesheet" type="text/css" href="css/arjuna.css">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.0.min.js"></script>
+</head>
+<body class="cl-default fixed" id="login">
+
+    <!-- start:wrapper -->
+    <div class="header-login">
+    	<div class="text-center">
+    		<h1><i class="fa fa-pied-piper-alt"></i> Junto</h1>
+    	</div>
+    </div>
+
+    <div class="body-login">
+    	<div class="alert alert-dismissible alert-warning alert-login" role="alert">
+		  	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		  	<strong>Warning!</strong> Better check yourself, you're not looking too good.
+		</div>
+    	<form role="form" method="post" action="pages/temp-main.php">
+		  	<div class="form-group">
+		    	<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Enter email">
+		  	</div>
+		  	<div class="form-group">
+		    	<input type="password" class="form-control input-lg" id="password" placeholder="Enter Password">
+		  	</div>
+		  	<div class="checkbox">
+		    	<label>
+		      	<input type="checkbox"> Remember me
+		    	</label>
+		  	</div>
+		  	<button type="submit" class="btn btn-default btn-block btn-lg btn-perspective" id="loginUser">LOGIN</button>
+		</form>
+		<div class="text-center">
+			<p><a href="forgot-password.html"><strong>Forgot your password?</strong></a></p>
+			<p>or</p>
+			<p><a href="create.html"><strong>Create new account</strong></a></p>
+		</div>
+    </div>	
+	
+	<div id="main">
+    <h1>You're ready to use Parse!</h1>
+
+    <p>Read the documentation and start building your JavaScript app:</p>
+
+    <ul>
+      <li><a href="https://www.parse.com/docs/js_guide">Parse JavaScript Guide</a></li>
+      <li><a href="https://www.parse.com/docs/js">Parse JavaScript API Documentation</a></li>
+    </ul>
+
+    <div style="display:none" class="error">
+      Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
+    </div>
+
+    <div style="display:none; background: white;" class="success">
+      <p>We've also just created your first object using the following code:</p>
+      
+        <code>
+          var TestObject = Parse.Object.extend("TestObject");<br/>
+          var testObject = new TestObject();<br/>
+          testObject.save({foo: "bar"});
+        </code>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
+    //alert("beep");
+
+    // WORKS when a name/password has just been created through create.html. (aka goes to dash)
+    
+    $("#loginUser").click(function() {
+    	//alert("made it to the click");
+    	var userEmail = $("#email").val();
+    	var userPass = $("#password").val();
+    	
+    	Parse.User.logIn(userEmail, userPass, {
+    		success: function(user) {
+    			//alert("success");
+    			window.location.replace("pages/temp-main.php");
+    		},
+    		error: function(error) {
+    			//alert("failure");
+    			console.log(error);
+    		}
+    		//event.preventDefault();
+    	})
+
+	   /* var user = new Parse.User();
+		user.set("username", userEmail);
+		user.set("password", userPass);
+		//user.set("email", "email@example.com");
+	 	
+		// other fields can be set just like with Parse.Object
+		//user.set("phone", "415-392-0202");
+	 	
+		user.signUp(null, {
+	 	 success: function(user) {
+	    	// Hooray! Let them use the app now.
+	    	window.location("pages/main.php");
+	    	},
+	     error: function(user, error) {
+	     	window.location.replace("pages/main.php");
+	     	
+	    	// Show the error message somewhere and let the user try again
+	    	//alert("Error: " + error.code + " " + error.message);
+			}
+		});
+*/
+	});
+
+
+    
+	
+	
+	
+    
+  </script>
+    <!-- end:wrapper -->
+
+	<!-- start:javascript for all pages -->
+		<!-- start:jquery -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<!-- start:bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- start:arjuna.js -->
+		<script src="js/arjuna.js"></script>
+	<!-- end:javascript for all pages-->
+
+</body>
+</html>
