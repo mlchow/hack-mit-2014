@@ -193,8 +193,8 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!--<img src="img/user.jpg" class="img-circle img-responsive img-user">-->
-                                <strong><div id="email-id"></div></strong>
+                                <img src="img/user.jpg" class="img-circle img-responsive img-user">
+                                <strong>@john</strong>
                             </a>
                             <ul class="dropdown-menu dropdown-login">
                                 <li>
@@ -206,8 +206,8 @@
                                                 </p>
                                             </div>
                                             <div class="col-lg-9">
-                                                <p class="text-left" id="box-name"><strong></strong></p>
-                                                <p class="text-left small" id="box-email"></p>
+                                                <p class="text-left"><strong>John Doe</strong></p>
+                                                <p class="text-left small">johndoe@email.com</p>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <small><a href="#">Edit Profile</a></small>
@@ -223,7 +223,7 @@
                                 <li class="divider"></li>
                                 <li>
                                     <div class="navbar-login navbar-login-session">
-                                        <button class="btn btn-default btn-square btn-block" id="logout">Logout</button>
+                                        <a href="#" class="btn btn-default btn-square btn-block">Logout</a>
                                     </div>
                                 </li>
                             </ul>
@@ -257,7 +257,7 @@
                 <div class="user-panel">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="active"><a href="#user" role="tab" data-toggle="tab"><i class="fa fa-users"></i></a></li>
+                        <li class="active"><a href="#user" role="tab" data-toggle="tab"><i class="fa fa-user"></i></a></li>
                         <li><a href="#notif" role="tab" data-toggle="tab"><i class="fa fa-bullhorn"></i></a></li>
                         <li><a href="#profile" role="tab" data-toggle="tab"><i class="fa fa-cog"></i></a></li>
                     </ul>
@@ -266,11 +266,10 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="user">
                             <div class="image">
-                                <!--image here-->
+                                image here
                             </div>
                             <div class="info">
-                               <!--<p>Name HERE</p>-->
-                               <p id="fullname"></p>
+                               <p>Name HERE</p>
                                 <small style="color: #eee;">Welcome Back</small>
                             </div>
                         </div>
@@ -313,15 +312,16 @@
                     </div>
                     
                 </div>
-                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <div><!-- sidebar menu: : style can be found in sidebar.less -->
+				
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="http://hackprofile.com/pages/main.php">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="treeview">
-                        <a href="">
+                        <a href="#">
                             <i class="fa fa-cog"></i>
                             <span>Category</span>
                             <i class="fa fa-angle-left pull-right"></i>
@@ -334,7 +334,7 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-table"></i> <span>Tables</span>
+                            <i class="fa fa-users"></i> <span>Community</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
@@ -355,95 +355,9 @@
                             <li><a href="drag-calendar.html"><i class="fa fa-circle-o"></i> Dragging Calendar</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-home"></i> <span>Property</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="property.html"><i class="fa fa-circle-o"></i> Property</a></li>
-                            <li><a href="property-column.html"><i class="fa fa-circle-o"></i> Property Column</a></li>
-                            <li><a href="property-detail.html"><i class="fa fa-circle-o"></i> Property Detail</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-shopping-cart"></i> <span>Store</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="store.html"><i class="fa fa-circle-o"></i> Store List</a></li>
-                            <li><a href="store-detail.html"><i class="fa fa-circle-o"></i> Store Detail</a></li>
-                            <li><a href="shopping-cart.html"><i class="fa fa-circle-o"></i> Shopping Cart</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="inbox.html"><i class="fa fa-circle-o"></i> Inbox</a></li>
-                            <li><a href="inbox-detail.html"><i class="fa fa-circle-o"></i> Inbox Detail</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-comments"></i> <span>Chat Room</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="lobby.html"><i class="fa fa-circle-o"></i> Lobby</a></li>
-                            <li><a href="chat-room.html"><i class="fa fa-circle-o"></i> Chat Room</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview active">
-                        <a href="#">
-                            <i class="fa fa-folder"></i> <span>Extras Pages</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                            <li><a href="login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-                            <li><a href="register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                            <li><a href="forgot-password.html"><i class="fa fa-circle-o"></i> Forgot Password</a></li>
-                            <li><a href="lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-                            <li><a href="404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-                            <li><a href="500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-                            <li><a href="blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-                            <li><a href="faq.html"><i class="fa fa-circle-o"></i> FAQ</a></li>
-                        </ul>
-                    </li>
+                   
                 </ul>
-                <!-- start:project stats -->
-                <div class="project-sidebar">
-                    <div class="main-project-sidebar">
-                        <p><strong>Projects</strong></p>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                        <p>60% Complete</p>
-                    </div>
-                    <div class="main-project-sidebar">
-                        <p><strong>Tasks</strong></p>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                                <span class="sr-only">40% Complete</span>
-                            </div>
-                        </div>
-                        <p>40% Complete</p>
-                    </div>
-                    <div class="main-project-sidebar">
-                        <p><strong>Tasks</strong></p>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                                <span class="sr-only">90% Complete</span>
-                            </div>
-                        </div>
-                        <p>90% Complete</p>
-                    </div>
+               
                 </div>
             </section>
         </aside>
@@ -472,25 +386,92 @@
         <!-- start:right sidebar -->
         <aside class="right-side">
             <section class="content">
-                <h1>
+                <h1 id="pageTitle">
                     Blank Pages
-                    <small>Control panel</small>
+                    <!--<small>Control panel</small>-->
                 </h1>
                 <!-- start:breadcrumb -->
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
-                    <li><a href="#"> Extras Pages</a></li>
-                    <li class="active">Blank Page</li>
+                    <li><a href="#"><i class="active fa fa-home"></i> Dashboard</a></li
                 </ol>
                 <!-- end:breadcrumb -->
 
                 <!-- start:content -->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="box blank-page" id="main-container">
-                            Page Goes hsdhfhshshs
+                        <div class="box blank-page" >
+                            <div id="main-container" >Loading Content <i class="fa fa-refresh fa-spin"></i></div>
+                        
+						<!-- start:dynamic data table -->
+                        <div class="adv-table">
+                            <table  class="display table table-bordered table-striped" id="mainTable">
+                                <thead>
+                                    <tr id="tableHeader">
+                                        <th>Rendering engine</th>
+                                        <th>Browser</th>
+                                        <th>Platform(s)</th>
+                                        <th class="hidden-phone">Engine version</th>
+                                        <th class="hidden-phone">CSS grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td>Dillo 0.8</td>
+                                        <td>Embedded devices</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">X</td>
+                                    </tr>
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td>Links</td>
+                                        <td>Text only</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">X</td>
+                                    </tr>
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td>Lynx</td>
+                                        <td>Text only</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">X</td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Misc</td>
+                                        <td>IE Mobile</td>
+                                        <td>Windows Mobile 6</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">C</td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Misc</td>
+                                        <td>PSP browser</td>
+                                        <td>PSP</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">C</td>
+                                    </tr>
+                                    <tr class="gradeU">
+                                        <td>Other browsers</td>
+                                        <td>All others</td>
+                                        <td>-</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">U</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr id="tableFooter">
+                                        <th>Rendering engine</th>
+                                        <th>Browser</th>
+                                        <th>Platform(s)</th>
+                                        <th class="hidden-phone">Engine version</th>
+                                        <th class="hidden-phone">CSS grade</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                    </div>
+                        <!-- end:dynamic data table -->
+                    
                 </div>
                 <!-- end:content -->
 
@@ -526,37 +507,59 @@
 <script>
 $(document).ready(function(){
  Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
+ $(".btnEdit").bind("click", Edit);
+ $(".btnSave").bind("click", Save); 
+ 
 	var currentUser = Parse.User.current();
-
-             if (currentUser) {
-                console.log("yay");
-                $(document).ready(function() {
-                $("#fullname").append(currentUser.get("firstName") + " " + currentUser.get("lastName"));
-                $("#email-id").append(currentUser.get("username"));
-                $("#box-name").append(currentUser.get("firstName") + " " + currentUser.get("lastName"));
-                $("#box-email").append(currentUser.get("username"));
-            });
-            }
-            else {
-                console.log("boo");
-                window.location.replace("../index.html");
-            }
-            console.log(Parse.User.current());
   
-			var JuntoBox = Parse.Object.extend("TestObject");
+  
+			var JuntoBox = Parse.Object.extend("Hackathons");
 			var query = new Parse.Query(JuntoBox);
 			query.find( {
 			  success: function(juntoBoxEntry) {
 				// The object was retrieved successfully.
-				//$("#main-container").empty();
 				var stuff = "";
+				var objectIds = "";
+				
+				var name = ""; //juntoBoxEntry[0].get("className");
+				var myAttributes; 
                 for (i=0;i<juntoBoxEntry.length;i++) {
 					//$("#main-container").html(gameScore[i].get("foo"));
-					stuff += (i+1) + ". " + juntoBoxEntry[i].get("foo")+"<br>";
+					stuff += (i+1) + ". " + juntoBoxEntry[i].get("Name")+"<br>";
+					objectIds += (i+1) + ". " + juntoBoxEntry[i].id+"<br>";
 					
+					for (var key in juntoBoxEntry[i]) {
+						console.log("Key: " + key);
+						console.log("Value: " + juntoBoxEntry[i][key]);
+						if(key == "className"){
+							name = juntoBoxEntry[i][key];
+						}else if (key == "attributes"){
+							myAttributes = juntoBoxEntry[i][key];
+						}
+					}
+					
+				
 				  //alert(gameScore[i].get("foo"));
 				  }
+				  //SET TABLE HEADER
+				  var attributesString = "";
+				  for (var key in myAttributes) {
+					console.log("HH: Key: " + key);
+					console.log("HH: Value: " + myAttributes[key]);
+					attributesString += "<th> " + key + " </th>  ";
+				  }
+				  $("#tableHeader").html(attributesString);
+				  $("#tableFooter").html(attributesString);
+				  
+				  $("#pageTitle").html(name);
+				  
+				  
+				  
+				  
 				  $("#main-container").html(stuff);
+				  
+				
+				  //$("#main-container").html(objectIds);
 			  },
 			  error: function(object, error) {
 				// The object was not retrieved successfully.
@@ -565,22 +568,62 @@ $(document).ready(function(){
 			  }
 			});
 			
-            $("#logout").click(function() {
-                Parse.User.logOut();
-                var currentUser = Parse.User.current();
-                window.location.replace("../index.html");
-            }); 
-			
 			/*
 			var test = query.get("foo");
 			alert(test);*/
 });
+
+function Edit() { 
+	var par = $(this).parent().parent(); //tr 
+	var tdName = par.children("td:nth-child(1)"); 
+	var tdPhone = par.children("td:nth-child(2)"); 
+	var tdEmail = par.children("td:nth-child(3)"); 
+	var tdButtons = par.children("td:nth-child(4)"); 
+	
+	tdName.html("<input type='text' id='txtName' value='"+tdName.html()+"'/>"); 
+	tdPhone.html("<input type='text' id='txtPhone' value='"+tdPhone.html()+"'/>"); 
+	tdEmail.html("<input type='text' id='txtEmail' value='"+tdEmail.html()+"'/>"); 
+	tdButtons.html("<img src='images/disk.png' class='btnSave'/>"); 
+
+	$(".btnSave").bind("click", Save); 
+	$(".btnEdit").bind("click", Edit); 
+
+};
+
+function Save(){ 
+	var par = $(this).parent().parent(); //tr 
+	var tdName = par.children("td:nth-child(1)"); 
+	var tdPhone = par.children("td:nth-child(2)"); 
+	var tdEmail = par.children("td:nth-child(3)"); 
+	var tdButtons = par.children("td:nth-child(4)"); 
+	
+	tdName.html(tdName.children("input[type=text]").val()); 
+	tdPhone.html(tdPhone.children("input[type=text]").val()); 
+	tdEmail.html(tdEmail.children("input[type=text]").val()); 
+	tdButtons.html("<img src='images/pencil.png' class='btnEdit'/>"); 
+	
+	$(".btnEdit").bind("click", Edit); 
+	
+}; 
+
+Read more: http://mrbool.com/how-to-add-edit-and-delete-rows-of-a-html-table-with-jquery/26721#ixzz3FG13xIMZ
+Read more: http://mrbool.com/how-to-add-edit-and-delete-rows-of-a-html-table-with-jquery/26721#ixzz3FFyHqAza
 </script>
 		<!-- start:bootstrap -->
 		<script src="../js/bootstrap.min.js"></script>
 		<!-- start:arjuna.js -->
 		<script src="../js/arjuna.js"></script>
 	<!-- end:javascript for all pages-->
+	
+    <script src="../plugins/advanced-datatable/media/js/jquery.dataTables.js"></script>
+    <script src="../plugins/data-tables/DT_bootstrap.js"></script>
+	<script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#mainTable').dataTable( {
+                "aaSorting": [[ 4, "desc" ]]
+            } );
+        } );
+    </script>
 	
 
 	

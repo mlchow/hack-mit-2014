@@ -193,8 +193,8 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!--<img src="img/user.jpg" class="img-circle img-responsive img-user">-->
-                                <strong><div id="email-id"></div></strong>
+                                <img src="img/user.jpg" class="img-circle img-responsive img-user">
+                                <strong>@john</strong>
                             </a>
                             <ul class="dropdown-menu dropdown-login">
                                 <li>
@@ -206,8 +206,8 @@
                                                 </p>
                                             </div>
                                             <div class="col-lg-9">
-                                                <p class="text-left" id="box-name"><strong></strong></p>
-                                                <p class="text-left small" id="box-email"></p>
+                                                <p class="text-left"><strong>John Doe</strong></p>
+                                                <p class="text-left small">johndoe@email.com</p>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <small><a href="#">Edit Profile</a></small>
@@ -223,7 +223,7 @@
                                 <li class="divider"></li>
                                 <li>
                                     <div class="navbar-login navbar-login-session">
-                                        <button class="btn btn-default btn-square btn-block" id="logout">Logout</button>
+                                        <a href="#" class="btn btn-default btn-square btn-block">Logout</a>
                                     </div>
                                 </li>
                             </ul>
@@ -266,11 +266,10 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="user">
                             <div class="image">
-                                <!--image here-->
+                                image here
                             </div>
                             <div class="info">
-                               <!--<p>Name HERE</p>-->
-                               <p id="fullname"></p>
+                               <p>Name HERE</p>
                                 <small style="color: #eee;">Welcome Back</small>
                             </div>
                         </div>
@@ -323,13 +322,60 @@
                     <li class="treeview">
                         <a href="">
                             <i class="fa fa-cog"></i>
-                            <span>Category</span>
+                            <span>Component</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Todo List</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Draggable Portlet</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Nestable</a></li>
+                            <li><a href="todo-list.html"><i class="fa fa-circle-o"></i> Todo List</a></li>
+                            <li><a href="draggable-portlet.html"><i class="fa fa-circle-o"></i> Draggable Portlet</a></li>
+                            <li><a href="nestable.html"><i class="fa fa-circle-o"></i> Nestable</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <span>Charts</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+                            <li><a href="xchart.html"><i class="fa fa-circle-o"></i> XChart</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i>
+                            <span>UI Elements</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="general.html"><i class="fa fa-circle-o"></i> General</a></li>
+                            <li><a href="icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
+                            <li><a href="button.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
+                            <li><a href="slider.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
+                            <li><a href="timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
+                            <li><a href="typography.html"><i class="fa fa-circle-o"></i> Typography</a></li>
+                            <li><a href="grid.html"><i class="fa fa-circle-o"></i> Grid</a></li>
+                            <li><a href="panel-well.html"><i class="fa fa-circle-o"></i> Panel & Well</a></li>
+                            <li><a href="collapse.html"><i class="fa fa-circle-o"></i> Collapse</a></li>
+                            <li><a href="list-media.html"><i class="fa fa-circle-o"></i> List Media</a></li>
+                            <li><a href="popup-notif.html"><i class="fa fa-circle-o"></i> Popup & Notification</a></li>
+                            <li><a href="jumbotron-thumbnail.html"><i class="fa fa-circle-o"></i> Jumbotron & Thumbnail</a></li>
+                            <li><a href="breadcrumb-pagination.html"><i class="fa fa-circle-o"></i> Breadcrumb & Pagination</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Forms</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="form-component.html"><i class="fa fa-circle-o"></i> Form Component</a></li>
+                            <li><a href="advance-component.html"><i class="fa fa-circle-o"></i> Advance Component</a></li>
+                            <li><a href="form-wizard.html"><i class="fa fa-circle-o"></i> Form Wizard</a></li>
+                            <li><a href="form-validation.html"><i class="fa fa-circle-o"></i> Form Validation</a></li>
+                            <li><a href="dropzone-file-upload.html"><i class="fa fa-circle-o"></i> Dropzone File Upload</a></li>
+                            <li><a href="multiple-file-upload.html"><i class="fa fa-circle-o"></i> Multiple File upload</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -488,7 +534,20 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box blank-page" id="main-container">
-                            Page Goes hsdhfhshshs
+                            <button type="button" id="newAttribute">Add attribute</button>
+							<button type="button" id="newObject">Create Object</button>
+							<div id="wrapper">
+								<div id="duplicater1">
+									<select name="attributes1" id="attributes1" class="attributes">
+										<option value="title">Title</option>
+										<option value="description">Description</option>
+										<option value="location">Location</option>
+										<option value="date">Date</option>
+										<option value="url">URL</option>
+									</select>
+									<input type="text" id="attributeText1" class="attributeText"></input>
+								</div>
+							</div>
                         </div>
                     </div>
                 </div>
@@ -523,57 +582,46 @@
 	<!-- start:javascript for all pages -->
 		<!-- start:jquery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
- Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
-	var currentUser = Parse.User.current();
+<script type="text/javascript">
+Parse.initialize("aCubIxbTlqYnMy7LaWmrmwtPrBL5qTleYzveHlcL", "7UVR6VNmC96yARCgZIUDxsfxNHdSyhzdNWFoEtC4");
 
-             if (currentUser) {
-                console.log("yay");
-                $(document).ready(function() {
-                $("#fullname").append(currentUser.get("firstName") + " " + currentUser.get("lastName"));
-                $("#email-id").append(currentUser.get("username"));
-                $("#box-name").append(currentUser.get("firstName") + " " + currentUser.get("lastName"));
-                $("#box-email").append(currentUser.get("username"));
-            });
-            }
-            else {
-                console.log("boo");
-                window.location.replace("../index.html");
-            }
-            console.log(Parse.User.current());
-  
-			var JuntoBox = Parse.Object.extend("TestObject");
-			var query = new Parse.Query(JuntoBox);
-			query.find( {
-			  success: function(juntoBoxEntry) {
-				// The object was retrieved successfully.
-				//$("#main-container").empty();
-				var stuff = "";
-                for (i=0;i<juntoBoxEntry.length;i++) {
-					//$("#main-container").html(gameScore[i].get("foo"));
-					stuff += (i+1) + ". " + juntoBoxEntry[i].get("foo")+"<br>";
-					
-				  //alert(gameScore[i].get("foo"));
-				  }
-				  $("#main-container").html(stuff);
-			  },
-			  error: function(object, error) {
-				// The object was not retrieved successfully.
-				// error is a Parse.Error with an error code and message.
-				alert("error");
-			  }
-			});
-			
-            $("#logout").click(function() {
-                Parse.User.logOut();
-                var currentUser = Parse.User.current();
-                window.location.replace("../index.html");
-            }); 
-			
-			/*
-			var test = query.get("foo");
-			alert(test);*/
+var numOfAttr = 1;
+
+$("#newAttribute").click(function() {
+	/*var original = document.getElementById('duplicater1');
+	var clone = original.cloneNode(true); // "deep" clone
+    clone.id = "duplicater" + ++numOfAttr;
+    original.parentNode.appendChild(clone);*/
+	$tmc = $("#duplicater1").clone();
+	$(".attributes", $tmc).attr('id', 'attributes' + ++numOfAttr);
+	$(".attributeText", $tmc).attr('id', 'attributeText' + numOfAttr);
+	$(".attributes", $tmc).attr('name', 'attributes' + numOfAttr);
+	$tmc.appendTo("#wrapper");
+});
+
+$("#newObject").click(function() {
+	var JuntoBox = Parse.Object.extend("TestObject");
+	var myObject = new JuntoBox();
+	
+	for (i = 1; i <= numOfAttr; i++) {
+		var e = document.getElementById('attributes'+i);
+		alert("e: " + e);
+		alert("Attribute: " + i);
+		alert("selectedIndex: " + e.selectedIndex);
+		myObject.set(e.options[e.selectedIndex].value, document.getElementById('attributeText'+i).value);
+	
+		myObject.save(null, {
+			success: function(myObject) {
+				// Execute any logic that should take place after the object is saved.
+				alert('New object created with objectId: ' + myObject.id);
+		},
+		error: function(myObject, error) {
+			// Execute any logic that should take place if the save fails.
+			// error is a Parse.Error with an error code and message.
+			alert('Failed to create new object, with error code: ' + error.message);
+		}
+		});
+	}
 });
 </script>
 		<!-- start:bootstrap -->

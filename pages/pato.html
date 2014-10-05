@@ -9,14 +9,14 @@
 	<button type="button" id="newObject">Create Object</button>
 	<div id="wrapper">
 		<div id="duplicater1">
-			<select id="attributes1">
+			<select name="attributes1" id="attributes1" class="attributes">
 				<option value="title">Title</option>
 				<option value="description">Description</option>
 				<option value="location">Location</option>
 				<option value="date">Date</option>
 				<option value="url">URL</option>
 			</select>
-			<input type="text" id="attributeText1"></input>
+			<input type="text" id="attributeText1" class="attributeText"></input>
 		</div>
 	</div>
 	
@@ -31,8 +31,9 @@ $("#newAttribute").click(function() {
     clone.id = "duplicater" + ++numOfAttr;
     original.parentNode.appendChild(clone);*/
 	$tmc = $("#duplicater1").clone();
-	$(".attributes1", $tmc).attr('id', 'attributes' + ++numOfAttr);
-	$(".di", $tmc).attr('id', 'attributeText' + numOfAttr);
+	$(".attributes", $tmc).attr('id', 'attributes' + ++numOfAttr);
+	$(".attributeText", $tmc).attr('id', 'attributeText' + numOfAttr);
+	$(".attributes", $tmc).attr('name', 'attributes' + numOfAttr);
 	$tmc.appendTo("#wrapper");
 });
 
@@ -42,10 +43,10 @@ $("#newObject").click(function() {
 	
 	for (i = 1; i <= numOfAttr; i++) {
 		var e = document.getElementById('attributes'+i);
-		alert("Attribute text: " + document.getElementById('attributeText'+i).value);
-		alert("Option: " + e.options[e.selectedIndex].value);
-		myObject.set(e.options[e.selectedIndex].value, document.getElementById('attributeText'+i));
-		alert("Attribute text: " + document.getElementById('attributeText'+i));
+		alert("e: " + e);
+		alert("Attribute: " + i);
+		alert("selectedIndex: " + e.selectedIndex);
+		myObject.set(e.options[e.selectedIndex].value, document.getElementById('attributeText'+i).value);
 	
 		myObject.save(null, {
 			success: function(myObject) {

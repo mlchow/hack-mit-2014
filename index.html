@@ -31,11 +31,11 @@
     </div>
 
     <div class="body-login">
-    	<div class="alert alert-dismissible alert-warning alert-login" role="alert">
+    	<div class="alert alert-dismissible alert-warning alert-login hidden" role="alert">
 		  	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		  	<strong>Warning!</strong> Better check yourself, you're not looking too good.
 		</div>
-    	<form role="form" method="post" action="pages/temp-main.php">
+    	<form role="form" method="post">
 		  	<div class="form-group">
 		    	<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Enter email">
 		  	</div>
@@ -56,38 +56,24 @@
 		</div>
     </div>	
 	
-	<div id="main">
-    <h1>You're ready to use Parse!</h1>
-
-    <p>Read the documentation and start building your JavaScript app:</p>
-
-    <ul>
-      <li><a href="https://www.parse.com/docs/js_guide">Parse JavaScript Guide</a></li>
-      <li><a href="https://www.parse.com/docs/js">Parse JavaScript API Documentation</a></li>
-    </ul>
-
-    <div style="display:none" class="error">
-      Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
-    </div>
-
-    <div style="display:none; background: white;" class="success">
-      <p>We've also just created your first object using the following code:</p>
-      
-        <code>
-          var TestObject = Parse.Object.extend("TestObject");<br/>
-          var testObject = new TestObject();<br/>
-          testObject.save({foo: "bar"});
-        </code>
-    </div>
-  </div>
+	
 
   <script type="text/javascript">
     Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
-    //alert("beep");
 
-    // WORKS when a name/password has just been created through create.html. (aka goes to dash)
+    	var currentUser = Parse.User.current();
+	if (currentUser) {
+		window.location.replace("pages/main.php");
+	}
+	else {
+		// none. 
+	}
+	//var sessionToken = Parse.User.current()._sessionToken;
+
     
-    $("#loginUser").click(function() {
+    $("#loginUser").click(function(event) {
+    	event.preventDefault();
+
     	//alert("made it to the click");
     	var userEmail = $("#email").val();
     	var userPass = $("#password").val();
@@ -95,7 +81,13 @@
     	Parse.User.logIn(userEmail, userPass, {
     		success: function(user) {
     			//alert("success");
-    			window.location.replace("pages/temp-main.php");
+				Parse.User.become(user._sessionToken).then(function (user) {
+				//	console.log(Parse.User.current());
+			 	 window.location.href("pages/temp-main.php");
+				 }, function (error) {
+				  console.log(error);
+				});
+    			
     		},
     		error: function(error) {
     			//alert("failure");

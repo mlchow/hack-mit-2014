@@ -1,0 +1,133 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <script src="//www.parsecdn.com/js/parse-1.3.0.min.js"></script>
+  <title>My Parse App</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <!-- <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css"> -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.0.min.js"></script>
+</head>
+
+<body>
+    Title: <input type="text" id="title_input"></input> </br>
+    Description: <input type="text" id="desc_input"></input> </br>
+    Location: <input type="text" id="loc_input"></input> </br>
+    Date: <input type="text" id="date_input"></input></br>
+
+    <button onclick="searchAll()">Search!</button>
+
+
+
+
+  <script type="text/javascript">
+    Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
+
+
+    var Topic = Parse.Object.extend("Topic");
+    // var t = new Topic();
+    // t.save({title: "bob", description: "lol", location: "cali", date: "3005"});
+
+
+
+
+    function searchTitle() {
+      var title_input = document.getElementById("title_input").value;
+      var results = [];
+      var query = new Parse.Query(Topic);
+
+      query.equalTo("title", title_input);
+      query.find({
+        success: function(results) {
+          result_str = "";
+          for (var i=0; i<results.length; i++) {
+            var object = results[i];
+            result_str = result_str+" "+object.id;
+          }
+          //alert ("Successfully retrieved " +results.length + " scores.");
+          document.write("TITLE OBJ IDS: "+result_str+"<br/>");
+          },
+        error: function(error) {
+          //alert("Error: " + error.code + "" + error.message);
+        }
+      })}
+
+    function searchDescription() {
+      var desc_input = document.getElementById("desc_input").value;
+      var results = [];
+      var query = new Parse.Query(Topic);
+
+      query.equalTo("description", desc_input);
+      query.find({
+        success: function(results) {
+          result_str = "";
+          for (var i=0; i<results.length; i++) {
+            var object = results[i];
+            result_str = result_str+" "+object.id;
+          }
+          //alert ("Successfully retrieved " +results.length + " scores.");
+          document.write("DESC OBJ IDS: "+result_str+"<br/>");
+          document.createElement('br');
+          },
+        error: function(error) {
+          //alert("Error: " + error.code + "" + error.message);
+        }
+      })}
+
+    function searchLocation() {
+      var loc_input = document.getElementById("loc_input").value;
+      var results = [];
+      var query = new Parse.Query(Topic);
+      var mybr = document.createElement('br');
+
+      query.equalTo("location", loc_input);
+      query.find({
+        success: function(results) {
+          result_str = "";
+          for (var i=0; i<results.length; i++) {
+            var object = results[i];
+            result_str = result_str+" "+object.id;
+          }
+          //alert ("Successfully retrieved " +results.length + " scores.");
+          document.write("LOCATION OBJ IDS: "+result_str+"<br/>");
+          },
+        error: function(error) {
+          //alert("Error: " + error.code + "" + error.message);
+        }
+      })}
+
+    function searchDate() {
+      var date_input = document.getElementById("date_input").value;
+      var results = [];
+      var query = new Parse.Query(Topic);
+
+      query.equalTo("date", date_input);
+      query.find({
+        success: function(results) {
+          result_str = "";
+          for (var i=0; i<results.length; i++) {
+            var object = results[i];
+            result_str = result_str+" "+object.id;
+          }
+          //alert ("Successfully retrieved " +results.length + " scores.");
+          document.write("DATE OBJ IDS: "+result_str+"<br/>");
+          document.createElement('br');
+          },
+        error: function(error) {
+          //alert("Error: " + error.code + "" + error.message);
+        }
+      })}
+
+      function searchAll() {
+        searchTitle();
+        searchDescription();
+        searchLocation();
+        searchDate();
+      }
+
+  </script>
+</body>
+
+</html>

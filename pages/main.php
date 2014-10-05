@@ -399,10 +399,79 @@
                 <!-- start:content -->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="box blank-page" id="main-container">
-                            Loading Content <i class="fa fa-refresh fa-spin"></i>
+                        <div class="box blank-page" >
+                            <div id="main-container" >Loading Content <i class="fa fa-refresh fa-spin"></i></div>
+                        
+						<!-- start:dynamic data table -->
+                        <div class="adv-table">
+                            <table  class="display table table-bordered table-striped" id="mainTable">
+                                <thead>
+                                    <tr id="tableHeader">
+                                        <th>Rendering engine</th>
+                                        <th>Browser</th>
+                                        <th>Platform(s)</th>
+                                        <th class="hidden-phone">Engine version</th>
+                                        <th class="hidden-phone">CSS grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody">
+                                    
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td>Dillo 0.8</td>
+                                        <td>Embedded devices</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">X</td>
+                                    </tr>
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td>Links</td>
+                                        <td>Text only</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">X</td>
+                                    </tr>
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td>Lynx</td>
+                                        <td>Text only</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">X</td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Misc</td>
+                                        <td>IE Mobile</td>
+                                        <td>Windows Mobile 6</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">C</td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Misc</td>
+                                        <td>PSP browser</td>
+                                        <td>PSP</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">C</td>
+                                    </tr>
+                                    <tr class="gradeU">
+                                        <td>Other browsers</td>
+                                        <td>All others</td>
+                                        <td>-</td>
+                                        <td class="center hidden-phone">-</td>
+                                        <td class="center hidden-phone">U</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr id="tableFooter">
+                                        <th>Rendering engine</th>
+                                        <th>Browser</th>
+                                        <th>Platform(s)</th>
+                                        <th class="hidden-phone">Engine version</th>
+                                        <th class="hidden-phone">CSS grade</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                    </div>
+                        <!-- end:dynamic data table -->
+                    
                 </div>
                 <!-- end:content -->
 
@@ -449,10 +518,12 @@ $(document).ready(function(){
 				//$("#main-container").empty();
 				var stuff = "";
 				var objectIds = "";
-				
 				var name = ""; //juntoBoxEntry[0].get("className");
 				var myAttributes; 
-                for (i=0;i<1;i++) {
+
+
+
+                for (i=0;i<juntoBoxEntry.length;i++) {
 					//$("#main-container").html(gameScore[i].get("foo"));
 					stuff += (i+1) + ". " + juntoBoxEntry[i].get("Name")+"<br>";
 					objectIds += (i+1) + ". " + juntoBoxEntry[i].id+"<br>";
@@ -464,23 +535,47 @@ $(document).ready(function(){
 							name = juntoBoxEntry[i][key];
 						}else if (key == "attributes"){
 							myAttributes = juntoBoxEntry[i][key];
-							alert("found it" + myAttributes);
 						}
 					}
-					
-				
-				  //alert(gameScore[i].get("foo"));
 				  }
-				  alert(myAttributes);
-				  for (var key in myAttributes) {
-					console.log("HH: Key: " + key);
-					console.log("HH: Value: " + myAttributes[key]);
 				  
+				  
+				  //SET TABLE HEADER
+				  var attributesString = "";
+				  for (var key in myAttributes) {
+					//console.log("HH: Key: " + key);
+					//console.log("HH: Value: " + myAttributes[key]);
+					attributesString += "<th> " + key + " </th>  ";
 				  }
+				  $("#tableHeader").html(attributesString);
+				  $("#tableFooter").html(attributesString);
 				  
 				  $("#pageTitle").html(name);
 				  
-				  $("#main-container").html(stuff);
+				  
+				  	
+				  var temp = "";
+				    //$("#main-container").html(stuff);
+				for (i=0;i<juntoBoxEntry.length;i++) {
+					
+					
+					//get next row
+					//for (var key in juntoBoxEntry[i]) {
+						temp += "<tr>";
+						//get all columns
+						for (var key in myAttributes) {	
+							temp += "<td>"+ juntoBoxEntry[i].get(key) + "</td>";
+						}
+						temp += "</tr>";
+					//}
+				}	
+				
+				$("#tableBody").html(temp);
+						
+			
+				
+				  
+				  
 				  
 				
 				  //$("#main-container").html(objectIds);
@@ -492,7 +587,6 @@ $(document).ready(function(){
 			  }
 			});
 			
-			
 			/*
 			var test = query.get("foo");
 			alert(test);*/
@@ -503,6 +597,16 @@ $(document).ready(function(){
 		<!-- start:arjuna.js -->
 		<script src="../js/arjuna.js"></script>
 	<!-- end:javascript for all pages-->
+	
+    <script src="../plugins/advanced-datatable/media/js/jquery.dataTables.js"></script>
+    <script src="../plugins/data-tables/DT_bootstrap.js"></script>
+	<script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#mainTable').dataTable( {
+                "aaSorting": [[ 4, "desc" ]]
+            } );
+        } );
+    </script>
 	
 
 	

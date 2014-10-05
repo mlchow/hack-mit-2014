@@ -31,11 +31,11 @@
     </div>
 
     <div class="body-login">
-    	<div class="alert alert-dismissible alert-warning alert-login" role="alert">
+    	<div class="alert alert-dismissible alert-warning alert-login hidden" role="alert">
 		  	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		  	<strong>Warning!</strong> Better check yourself, you're not looking too good.
 		</div>
-    	<form role="form" method="post" action="pages/temp-main.php">
+    	<form role="form" method="post">
     		<div class="form-group">
     			<input type="firstName" class="form-control input-lg" id="firstName" name="firstName" placeholder="First Name">
     		</div>
@@ -55,38 +55,28 @@
 		  	</div>
 		  	<button type="submit" class="btn btn-default btn-block btn-lg btn-perspective" id="createUser">CREATE</button>
 		</form>
+		<div class="text-center">
+			<p><a href="index.html"><strong>Log In</strong></a></p>
+		</div>
     </div>	
 	
-	<div id="main">
-    <h1>You're ready to use Parse!</h1>
-
-    <p>Read the documentation and start building your JavaScript app:</p>
-
-    <ul>
-      <li><a href="https://www.parse.com/docs/js_guide">Parse JavaScript Guide</a></li>
-      <li><a href="https://www.parse.com/docs/js">Parse JavaScript API Documentation</a></li>
-    </ul>
-
-    <div style="display:none" class="error">
-      Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
-    </div>
-
-    <div style="display:none; background: white;" class="success">
-      <p>We've also just created your first object using the following code:</p>
-      
-        <code>
-          var TestObject = Parse.Object.extend("TestObject");<br/>
-          var testObject = new TestObject();<br/>
-          testObject.save({foo: "bar"});
-        </code>
-    </div>
-  </div>
+	
 
   <script type="text/javascript">
     Parse.initialize("biMGnMGZKMRqeZFLXZDFQP84ln8gKqPzj0oV71TM", "B2422y5nyMJsGZF4K6GzAiTFJgwTZkHhOpcZ8Ovj");
-    //alert("beep");
     
-    $("#createUser").click(function() {
+    var currentUser = Parse.User.current();
+    if (currentUser) {
+		window.location.replace("pages/temp-main.php");
+	}
+	else {
+		// none. 
+	}
+
+    
+    $("#createUser").click(function(event) {
+    	event.preventDefault();
+    	alert("yo");
     	
     	// set user values
     	var firstName = $("#firstName").val();
@@ -104,12 +94,18 @@
 	 	// sign up new user
 		user.signUp(null, {
 	 	 success: function(user) {
-	    	alert("create success");
-	    	window.location.replace("pages/temp-main.php");
+	    	//alert("create success");
+	    	//window.location.replace("pages/temp-main.php");
+	    	Parse.User.become(user._sessionToken).then(function (user) {
+				//	console.log(Parse.User.current());
+			 	 window.location.replace("pages/main.php");
+				 }, function (error) {
+				  console.log(error);
+				});
 	    	},
 	     error: function(user, error) {
-	     	alert("create failure");
-	     	window.location.replace("pages/temp-main.php");
+	     	//alert("create failure");
+	     	//some error message
 
 	    	// Show the error message somewhere and let the user try again
 	    	//alert("Error: " + error.code + " " + error.message);
